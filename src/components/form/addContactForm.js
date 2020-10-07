@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from './form.component';
+import PropTypes from "prop-types";
 
 export default class AddContactForm extends Component {
   state = {
@@ -9,16 +10,20 @@ export default class AddContactForm extends Component {
   onChangeHandler = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
-  render() {
+  SubmitHandler = (e) => {
+    e.preventDefault();
     const { onSubmit } = this.props;
     const { name, number } = this.state;
+    onSubmit(name, number);
+    this.setState({
+      name: '',
+      number: ''
+    })
+  }
+  render() {
+    const { name, number } = this.state;
     return (
-      <Form
-        onSubmit={(e) => {
-          e.preventDefault();
-          onSubmit(name, number);
-        }}
-      >
+      <Form onSubmit={this.SubmitHandler}>
         <Form.Label>
           Name
           <input
@@ -44,3 +49,7 @@ export default class AddContactForm extends Component {
     );
   }
 }
+
+AddContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired
+};

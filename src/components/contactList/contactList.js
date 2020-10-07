@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FindContacts from "../findContacts/findContacts";
 import ContactListItem from "./contactListItem/contactListItem";
-
+import PropTypes from "prop-types";
 
 export default class ContactList extends Component {
   
@@ -20,4 +20,10 @@ export default class ContactList extends Component {
       </>
     );
   }
+}
+
+ContactList.propTypes = {
+  contacts: PropTypes.func.isRequired,
+  contactSearch: PropTypes.func.isRequired,
+  onRemoveContact: PropTypes.func.isRequired
 }
