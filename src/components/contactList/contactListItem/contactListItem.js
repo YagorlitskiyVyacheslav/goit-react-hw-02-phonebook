@@ -27,8 +27,8 @@ function ContactListItem({contacts, onRemoveContact}) {
     );
 }
 
-ContactList.propTypes = {
-  contacts: PropTypes.func.isRequired,
+ContactListItem.propTypes = {
+  contacts: PropTypes.array.isRequired,
   onRemoveContact: PropTypes.func.isRequired,
 };
 

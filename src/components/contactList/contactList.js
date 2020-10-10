@@ -23,7 +23,7 @@ export default class ContactList extends Component {
 }
 
 ContactList.propTypes = {
-  contacts: PropTypes.func.isRequired,
+  contacts: PropTypes.array.isRequired,
   contactSearch: PropTypes.func.isRequired,
   onRemoveContact: PropTypes.func.isRequired
 }
