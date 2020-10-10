@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Input from './findContact.component';
+import PropTypes from "prop-types";
 
 export default class FindContacts extends Component {
     render() {
@@ -14,3 +15,7 @@ export default class FindContacts extends Component {
         )
     }
 }
+
+FindContacts.propTypes = {
+  contactSearch: PropTypes.func.isRequired,
+};
